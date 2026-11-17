@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Teltech Networks, S.A. — Design tokens (v2, brand identity)
+   Edit THIS file to change the palette, type, spacing or motion of the site.
+   Every color on the site (CSS, inline SVG and the canvas globe) reads from
+   these custom properties. Canvas colors must stay opaque (hex or rgb()).
+   Palette sampled from the Teltech brand: deep navy + electric cyan.
+   ========================================================================== */
+
+/* --- Self-hosted fonts (SIL OFL 1.1, see /fonts/*.txt) -------------------
+   Latin subset only: covers Spanish (á é í ó ú ü ñ ¿ ¡). */
+@font-face {
+  font-family: "Saira";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 50% 125%;
+  src: url("../fonts/saira-latin-var.woff2") format("woff2-variations"),
+       url("../fonts/saira-latin-var.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+                 U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+                 U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("../fonts/ibm-plex-sans-latin-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+                 U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+                 U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("../fonts/ibm-plex-sans-latin-600.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+                 U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+                 U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* --- 1. Dark base: brand navy ------------------------------------------ */
+  --c-base-950: #000818;   /* page background (brand navy) */
+  --c-base-900: #020e24;   /* alternate sections */
+  --c-base-800: #061733;   /* cards, panels */
+  --c-base-700: #0b2244;   /* raised surfaces, inputs */
+  --c-base-600: #173a66;   /* borders, network lines */
+
+  /* --- 2. Electric accent: brand cyan (signal, interactive, key) --------- */
+  --c-accent: #1ec0e8;
+  --c-accent-hover: #7fdcf5;
+  --c-accent-ink: #00101e; /* text placed ON the accent */
+
+  /* --- 3. Neutral ---------------------------------------------------------- */
+  --c-neutral-50: #eef6fb;  /* headings */
+  --c-neutral-200: #c3d3e3; /* body text */
+  --c-neutral-400: #8ea4bd; /* secondary text (AA on every base surface) */
+
+  /* --- Functional state (form errors only) ------------------------------- */
+  --c-danger: #ff9b9b;
+
+  /* --- Derived surfaces --------------------------------------------------- */
+  --glass-bg: rgb(6 23 51 / 0.66);
+  --glass-border: rgb(195 211 227 / 0.11);
+  --glow-accent: rgb(30 192 232 / 0.28);
+  --line-soft: rgb(142 164 189 / 0.16);
+
+  /* --- Typography -------------------------------------------------------- */
+  --font-display: "Saira", "Eurostile", "Segoe UI", sans-serif;
+  --font-text: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --stretch-display: 112%;   /* expanded, telecom feel; narrowed on phones */
+
+  --fs-hero: clamp(2.6rem, 1.2rem + 6.4vw, 7.2rem);
+  --fs-h1: clamp(2.2rem, 1.2rem + 4.4vw, 5.6rem);
+  --fs-h2: clamp(1.75rem, 1.15rem + 2.6vw, 3.6rem);
+  --fs-h3: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+  --fs-lead: clamp(1.06rem, 1rem + 0.35vw, 1.3rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+
+  /* --- Spacing & shape --------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: clamp(5.5rem, 3.5rem + 7vw, 10.5rem);
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+  --max-w: 80rem;
+  --radius-s: 0.4rem;
+  --radius-m: 0.75rem;
+  --radius-l: 1.25rem;
+
+  /* --- Motion ------------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-med: 420ms;
+  --dur-slow: 1000ms;
+
+  /* --- Layers ------------------------------------------------------------ */
+  --z-header: 50;
+  --z-menu: 60;
+  --z-intro: 90;
+  --z-veil: 100;
+}
+
+@media (max-width: 560px) {
+  :root { --stretch-display: 92%; }
+}
